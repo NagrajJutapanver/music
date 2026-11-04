@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONORA — Music Experience</title>
+<style>
+:root{--bg:#090a10;--panel:#13141e;--line:#292936;--muted:#92919f;--text:#f5f3fa;--accent:#c5a6ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer;border:0;color:inherit}img{display:block;max-width:100%}.app{display:flex;min-height:100vh}.sidebar{width:225px;flex-shrink:0;padding:25px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:30px}.logo{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:900;letter-spacing:4px}.logo-icon{width:38px;height:38px;border-radius:11px;background:var(--accent);color:#171020;display:grid;place-items:center;font-size:23px}.muted{color:var(--muted)}.section-label{font-size:10px;letter-spacing:2px;font-weight:700;color:var(--muted);padding:0 12px;margin-bottom:10px}.navbtn{width:100%;display:flex;gap:13px;align-items:center;padding:12px;border-radius:9px;background:transparent;color:#aaa9b5;text-align:left;font-size:13px;margin:2px 0}.navbtn:hover,.navbtn.active{background:#252333;color:white}.promo,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px}.promo{padding:17px;margin-top:5px}.promo p{font-size:12px;line-height:1.6;color:var(--muted)}.accent{color:var(--accent)}.main{min-width:0;flex:1;padding-bottom:115px}.topbar{height:70px;position:sticky;top:0;z-index:5;background:#0c0d14ed;backdrop-filter:blur(15px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:20px}.search{width:min(420px,100%);background:#171821;border:1px solid #333340;border-radius:30px;padding:12px 18px;color:white;outline:none}.avatar{width:38px;height:38px;border-radius:50%;background:#292538;border:1px solid #484054;color:var(--accent);font-weight:bold}.content{padding:28px 34px}.hero{background:linear-gradient(100deg,#21172d,#2c1e3b 50%,#141421);border-radius:18px;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:25px;overflow:hidden;margin:23px 0 35px}.hero h1{font-size:48px;line-height:1.05;margin:15px 0}.hero p{color:#c1b8cd;max-width:330px;font-size:14px;line-height:1.7}.hero img{width:225px;height:225px;object-fit:cover;border-radius:14px;box-shadow:0 15px 45px #0008}.primary{background:var(--accent);color:#170f22;border-radius:30px;padding:12px 20px;font-weight:750}.heading{display:flex;justify-content:space-between;align-items:center;margin:0 0 15px}.heading h2{font-size:19px;margin:0}.heading p{font-size:12px;color:var(--muted);margin:6px 0 0}.text-link{background:none;color:var(--accent);font-size:12px}.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:35px}.mood{border-radius:13px;padding:17px;text-align:left;min-height:105px;font-weight:bold}.mood span{font-size:24px;display:block;margin-bottom:13px}.mood:nth-child(1){background:linear-gradient(135deg,#58375b,#b25e7b)}.mood:nth-child(2){background:linear-gradient(135deg,#173d53,#347b91)}.mood:nth-child(3){background:linear-gradient(135deg,#713c25,#d28a3f)}.mood:nth-child(4){background:linear-gradient(135deg,#233d37,#57957d)}.tracks{margin-bottom:34px}.track{display:grid;grid-template-columns:35px minmax(0,1fr) 40px 40px;gap:12px;align-items:center;padding:9px;border-radius:9px}.track:hover{background:#20212c}.track img{width:42px;height:42px;object-fit:cover;border-radius:7px}.track-info{display:flex;gap:12px;align-items:center;min-width:0}.track-info div{min-width:0}.track-title,.track-artist{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track-title{font-size:13px;font-weight:600}.track-artist{font-size:11px;color:var(--muted);margin-top:4px}.track button{background:none;color:var(--muted);font-size:18px}.duration{font-size:11px;color:var(--muted);text-align:right}.albums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.album{cursor:pointer;min-width:0}.cover{aspect-ratio:1;border-radius:12px;overflow:hidden;margin-bottom:10px;position:relative;background:#222}.cover img{width:100%;height:100%;object-fit:cover;transition:.4s}.album:hover .cover img{transform:scale(1.06)}.album strong{font-size:13px}.album p{font-size:11px;color:var(--muted);margin:5px 0}.newsletter{margin-top:36px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.newsletter p{font-size:12px;color:var(--muted)}.newsletter input{background:#20212c;border:1px solid #373744;border-radius:30px;padding:12px 15px;color:white;min-width:190px;outline:none}.player{position:fixed;bottom:0;left:0;right:0;z-index:10;background:#11111aee;backdrop-filter:blur(20px);border-top:1px solid #34313f;padding:12px 25px;display:flex;align-items:center;gap:20px}.now-playing{width:32%;display:flex;align-items:center;gap:12px;min-width:0}.now-playing img{width:44px;height:44px;border-radius:8px;object-fit:cover}.now-playing div{min-width:0}.now-playing strong,.now-playing small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.now-playing strong{font-size:12px}.now-playing small{font-size:10px;color:var(--muted);margin-top:4px}.player button{background:none;color:var(--muted)}.controls{flex:1;max-width:440px;display:flex;flex-direction:column;gap:9px}.control-buttons{display:flex;align-items:center;justify-content:center;gap:20px}.play{background:var(--accent)!important;color:#170f22!important;border-radius:50%;width:39px;height:39px;font-weight:bold}.seek-row{display:flex;align-items:center;gap:9px;font-size:9px;color:var(--muted)}.seek{height:4px;border-radius:8px;background:#41404d;flex:1;cursor:pointer}.seek-fill{height:100%;width:0;background:var(--accent);border-radius:8px}.player-extra{width:32%;text-align:right;font-size:10px;color:var(--muted)}.mobile-brand,.mobile-nav{display:none}.page{display:none}.page.active{display:block}.chips{display:flex;gap:8px;overflow:auto;margin:20px 0}.chip{white-space:nowrap;padding:8px 15px;border:1px solid #353541;border-radius:30px;background:transparent;color:#aaa;font-size:12px}.chip.selected{background:var(--accent);color:#1a1026;border-color:var(--accent)}.page-title{font-size:32px;margin:8px 0}.page-desc{font-size:13px;color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:35px;font-size:13px}
+@media(max-width:800px){.sidebar{display:none}.topbar{padding:0 16px}.content{padding:20px 17px}.hero{padding:22px}.hero h1{font-size:35px}.hero img{width:125px;height:125px}.albums{grid-template-columns:repeat(2,minmax(0,1fr))}.moods{grid-template-columns:repeat(2,1fr)}.mobile-brand{display:block;font-weight:900;letter-spacing:3px;font-size:13px}.mobile-nav{display:flex;gap:8px;padding:12px 16px;overflow:auto;border-bottom:1px solid var(--line)}.player{padding:10px;gap:10px}.now-playing{width:35%}.now-playing img{width:38px;height:38px}.player-extra{display:none}.control-buttons{gap:13px}.track{grid-template-columns:25px minmax(0,1fr) 32px}.duration{display:none}.newsletter{align-items:flex-start;flex-direction:column}.newsletter form{width:100%;display:flex}.newsletter input{min-width:0;flex:1}}
+@media(max-width:430px){.hero img{display:none}.hero h1{font-size:38px}.now-playing{width:39%;gap:7px}.now-playing img{width:34px;height:34px}.now-playing small{font-size:9px}.control-buttons{gap:9px}.control-buttons button{font-size:12px}.play{width:34px;height:34px}.seek-row{gap:5px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo"><span class="logo-icon">♫</span> SONORA<span class="accent">.</span></div>
+  <div><div class="section-label">MENU</div>
+    <button class="navbtn active" data-page="Home">⌂ &nbsp; Home</button>
+    <button class="navbtn" data-page="Discover">◈ &nbsp; Discover</button>
+    <button class="navbtn" data-page="Explore">⌕ &nbsp; Explore</button>
+    <button class="navbtn" data-page="Radio">◉ &nbsp; Radio</button>
+  </div>
+  <div><div class="section-label">YOUR LIBRARY</div>
+    <button class="navbtn" data-page="Liked Songs">♡ &nbsp; Liked Songs</button>
+    <button class="navbtn" data-page="Albums">▤ &nbsp; Albums</button>
+    <button class="navbtn" data-page="Playlists">☷ &nbsp; Playlists</button>
+  </div>
+  <div class="promo"><div class="accent" style="font-size:24px">✦</div><strong style="font-size:13px">Your sound, your world.</strong><p>Discover music that feels like it was made just for you.</p><button class="text-link" data-page="Discover">Explore sounds →</button></div>
+  <div style="margin-top:auto;font-size:11px;color:var(--muted)">SONORA © 2026<br>Made for music lovers.</div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="mobile-brand">♫ SONORA.</div><input class="search" id="search" placeholder="⌕   Search songs, artists, albums..."><button class="avatar">S</button></header>
+<nav class="mobile-nav"><button class="chip selected" data-page="Home">Home</button><button class="chip" data-page="Discover">Discover</button><button class="chip" data-page="Explore">Explore</button><button class="chip" data-page="Liked Songs">Liked</button><button class="chip" data-page="Playlists">Playlists</button></nav>
+<div class="content">
+<section class="page active" id="homePage">
+  <div class="muted" style="font-size:10px;letter-spacing:2px">YOUR DAILY SOUNDTRACK ♫</div>
+  <h2 style="font-size:28px;margin:9px 0 0">Feel the rhythm<span class="accent">.</span></h2>
+  <div class="hero"><div><div class="accent" style="font-size:10px;letter-spacing:2px;font-weight:bold">SONORA SELECTS · FEATURED</div><h1>Beyond<br>the ordinary.</h1><p>A collection of sounds for late nights, long drives and everything in between.</p><button class="primary" id="heroPlay">▶ &nbsp; Explore the mix</button></div><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&h=500&fit=crop" alt="Live music concert"></div>
+  <div class="heading"><div><h2>Made for your mood</h2><p>Find the sound that matches you.</p></div></div>
+  <div class="moods"><button class="mood" data-mood="Dreamy"><span>☁</span>Dreamy</button><button class="mood" data-mood="Focus"><span>◉</span>Deep Focus</button><button class="mood" data-mood="Energy"><span>ϟ</span>Energy</button><button class="mood" data-mood="Chill"><span>☾</span>Chill</button></div>
+  <div class="heading"><div><h2>Trending this week</h2><p>The tracks everyone's talking about.</p></div><button class="text-link" data-page="Discover">View all →</button></div>
+  <div class="tracks" id="trending"></div>
+  <div class="heading"><div><h2>Editor's picks</h2><p>Carefully selected, just for your ears.</p></div></div>
+  <div class="albums" id="albumGrid"></div>
+  <div class="panel newsletter"><div><div class="accent" style="font-size:10px;letter-spacing:2px">STAY IN THE LOOP</div><h3 style="margin:8px 0">A little more music in your life.</h3><p>Get updates on new releases and fresh discoveries.</p></div><form id="subscribeForm"><input type="email" id="email" placeholder="Your email address" required> <button class="primary" type="submit">Join us</button></form></div><p id="subscribeMsg" class="accent" style="font-size:12px"></p>
+</section>
+<section class="page" id="otherPage"><div class="accent" style="font-size:10px;letter-spacing:2px">YOUR MUSIC SPACE</div><h1 class="page-title" id="pageTitle">Discover</h1><p class="page-desc" id="pageDesc">Find something new to love.</p><div class="chips" id="filters"><button class="chip selected" data-filter="All">All</button><button class="chip" data-filter="Pop">Pop</button><button class="chip" data-filter="Electronic">Electronic</button><button class="chip" data-filter="Indie">Indie</button><button class="chip" data-filter="Ambient">Ambient</button></div><div id="otherTracks"></div></section>
+</div>
+</main>
+</div>
+<footer class="player">
+  <div class="now-playing"><img id="nowImg" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=100&h=100&fit=crop" alt=""><div><strong id="nowTitle">Choose a track</strong><small id="nowArtist">SONORA player preview</small></div><button id="likeCurrent" title="Like">♡</button></div>
+  <div class="controls"><div class="control-buttons"><button id="shuffle" title="Shuffle">⤨</button><button id="previous">|◀</button><button class="play" id="togglePlay">▶</button><button id="next">▶|</button><button id="repeat" title="Repeat">↻</button></div><div class="seek-row"><span id="elapsed">0:00</span><div class="seek" id="seek"><div class="seek-fill" id="seekFill"></div></div><span id="total">0:00</span></div></div>
+  <div class="player-extra">♫ &nbsp; DEMO PLAYER &nbsp; <button id="volume">◖))</button></div>
+</footer>
+<script>
+const tracks=[
+{title:"Midnight City",artist:"M83",genre:"Electronic",time:"4:03",image:"photo-1519608487953-e999c86e7455"},
+{title:"Space Song",artist:"Beach House",genre:"Indie",time:"5:20",image:"photo-1470252649378-9c29740c9fa8"},
+{title:"The Less I Know The Better",artist:"Tame Impala",genre:"Indie",time:"3:36",image:"photo-1470225620780-dba8ba36b745"},
+{title:"Sunset Lover",artist:"Petit Biscuit",genre:"Electronic",time:"3:57",image:"photo-1500530855697-b586d89ba3ee"},
+{title:"A Moment Apart",artist:"ODESZA",genre:"Electronic",time:"3:54",image:"photo-1500534623283-312aade485b7"},
+{title:"Apocalypse",artist:"Cigarettes After Sex",genre:"Ambient",time:"4:50",image:"photo-1518837695005-2083093ee35b"},
+{title:"505",artist:"Arctic Monkeys",genre:"Indie",time:"4:13",image:"photo-1470770841072-f978cf4d019e"},
+{title:"After Dark",artist:"Mr.Kitty",genre:"Electronic",time:"4:17",image:"photo-1519608487953-e999c86e7455"},
+{title:"Ocean Eyes",artist:"Billie Eilish",genre:"Pop",time:"3:20",image:"photo-1507525428034-b723cf961d3e"},
+{title:"Yellow",artist:"Coldplay",genre:"Pop",time:"4:26",image:"photo-1470252649378-9c29740c9fa8"},
+{title:"Weightless",artist:"Marconi Union",genre:"Ambient",time:"8:09",image:"photo-1470071459604-3b5ec3a7fe05"},
+{title:"Dreams",artist:"Fleetwood Mac",genre:"Pop",time:"4:17",image:"photo-1470252649378-9c29740c9fa8"}
+];
+const collections=[
+["After Hours","Late night frequencies","photo-1519608487953-e999c86e7455"],
+["Golden Hour","Warm sounds, golden skies","photo-1470252649378-9c29740c9fa8"],
+["Ocean Eyes","Dive into the blue","photo-1507525428034-b723cf961d3e"],
+["The Journey","Sounds for the road","photo-1470770841072-f978cf4d019e"]
+];
+const image=(id,size=400)=>`https://images.unsplash.com/${id}?w=${size}&h=${size}&fit=crop`;
+let current=0,playing=false,liked=new Set(),filter="All",page="Home",searchText="",shuffle=false,repeat=false,elapsed=0,timer=null;
+const $=id=>document.getElementById(id);
+function duration(t){const [m,s]=t.split(":").map(Number);return m*60+s}
+function formatTime(s){return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function renderRow(t,i){return `<div class="track"><span class="muted" style="font-size:11px;text-align:center">${String(i+1).padStart(2,"0")}</span><div class="track-info"><img src="${image(t.image,100)}" alt=""><div><div class="track-title">${t.title}</div><div class="track-artist">${t.artist}</div></div></div><button data-like="${i}" aria-label="Like ${t.title}">${liked.has(i)?"♥":"♡"}</button><span class="duration">${t.time}</span></div>`}
+function renderTrending(){ $("trending").innerHTML=tracks.slice(0,5).map((t,i)=>renderRow(t,i)).join("")}
+function renderAlbums(){ $("albumGrid").innerHTML=collections.map((a,i)=>`<div class="album" data-album="${i}"><div class="cover"><img src="${image(a[2])}" alt="${a[0]}"></div><strong>${a[0]}</strong><p>${a[1]}</p></div>`).join("")}
+function renderPlayer(){const t=tracks[current];$("nowImg").src=image(t.image,100);$("nowTitle").textContent=t.title;$("nowArtist").textContent=t.artist;$("togglePlay").textContent=playing?"Ⅱ":"▶";$("likeCurrent").textContent=liked.has(current)?"♥":"♡";$("likeCurrent").style.color=liked.has(current)?"var(--accent)":"";$("total").textContent=t.time;$("elapsed").textContent=formatTime(elapsed);$("seekFill").style.width=(elapsed/duration(t)*100)+"%"}
+function setPlaying(value){playing=value;clearInterval(timer);if(playing){timer=setInterval(()=>{elapsed++;if(elapsed>=duration(tracks[current])){if(repeat){elapsed=0}else{playTrack(shuffle?Math.floor(Math.random()*tracks.length):current+1);return}}renderPlayer()},1000)}renderPlayer()}
+function playTrack(i){current=(i+tracks.length)%tracks.length;elapsed=0;setPlaying(true)}
+function navigate(p){page=p;document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===p));$("homePage").classList.toggle("active",p==="Home");$("otherPage").classList.toggle("active",p!=="Home");if(p!=="Home")renderOther();window.scrollTo({top:0,behavior:"smooth"})}
+function renderOther(){const descriptions={"Discover":"Fresh sounds, new favourites and trending tracks.","Explore":"Explore by genre, mood and discovery.","Radio":"Explore sounds across different moods and genres.","Liked Songs":"All the tracks you have saved in one place.","Albums":"Collections worth listening to from start to finish.","Playlists":"Your personal collections and favourite sounds."};$("pageTitle").textContent=page;$("pageDesc").textContent=descriptions[page]||"Find something new to love.";$("filters").style.display=["Liked Songs","Playlists","Albums"].includes(page)?"none":"flex";
+if(page==="Albums"||page==="Playlists"){$("otherTracks").innerHTML=`<div class="albums">${collections.map((a,i)=>`<div class="album" data-album="${i}"><div class="cover"><img src="${image(a[2])}"></div><strong>${a[0]}</strong><p>${a[1]}</p></div>`).join("")}</div>`;return}
+let results=tracks.map((t,i)=>({...t,index:i})).filter(t=>(filter==="All"||t.genre===filter)&&(page!=="Liked Songs"||liked.has(t.index))&&(t.title+" "+t.artist+" "+t.genre).toLowerCase().includes(searchText.toLowerCase()));
+$("otherTracks").innerHTML=results.length?results.map(t=>renderRow(t,t.index)).join(""):'<div class="empty">No tracks found. Try another search or explore more music.</div>'}
+document.addEventListener("click",e=>{
+const pageBtn=e.target.closest("[data-page]");if(pageBtn){navigate(pageBtn.dataset.page);return}
+const like=e.target.closest("[data-like]");if(like){const i=Number(like.dataset.like);liked.has(i)?liked.delete(i):liked.add(i);renderTrending();if(page!=="Home")renderOther();renderPlayer();return}
+const mood=e.target.closest("[data-mood]");if(mood){filter=mood.dataset.mood==="Energy"?"Electronic":mood.dataset.mood==="Focus"?"Ambient":"All";navigate("Explore");return}
+const album=e.target.closest("[data-album]");if(album){playTrack(Number(album.dataset.album));return}
+const track=e.target.closest(".track");if(track){const title=track.querySelector(".track-title").textContent;const index=tracks.findIndex(t=>t.title===title);if(index>=0)playTrack(index);return}
+const f=e.target.closest("[data-filter]");if(f){filter=f.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("selected",x===f));renderOther()}
+});
+$("heroPlay").addEventListener("click",()=>navigate("Discover"));
+$("togglePlay").addEventListener("click",()=>setPlaying(!playing));
+$("next").addEventListener("click",()=>playTrack(shuffle?Math.floor(Math.random()*tracks.length):current+1));
+$("previous").addEventListener("click",()=>playTrack(current-1));
+$("shuffle").addEventListener("click",e=>{shuffle=!shuffle;e.currentTarget.style.color=shuffle?"var(--accent)":""});
+$("repeat").addEventListener("click",e=>{repeat=!repeat;e.currentTarget.style.color=repeat?"var(--accent)":""});
+$("likeCurrent").addEventListener("click",()=>{liked.has(current)?liked.delete(current):liked.add(current);renderPlayer();if(page!=="Home")renderOther()});
+$("volume").addEventListener("click",e=>e.currentTarget.textContent=e.currentTarget.textContent==="◖))"?"◖×":"◖))");
+$("seek").addEventListener("click",e=>{const r=e.currentTarget.getBoundingClientRect();elapsed=Math.floor(Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*duration(tracks[current]));renderPlayer()});
+$("search").addEventListener("input",e=>{searchText=e.target.value;if(page==="Home"){const results=tracks.map((t,i)=>({...t,index:i})).filter(t=>(t.title+" "+t.artist).toLowerCase().includes(searchText.toLowerCase()));$("trending").innerHTML=results.length?results.map(t=>renderRow(t,t.index)).join(""):'<div class="empty">No matching tracks.</div>'}else renderOther()});
+$("subscribeForm").addEventListener("submit",e=>{e.preventDefault();$("subscribeMsg").textContent="You're on the list! Stay tuned.";e.target.reset()});
+renderTrending();renderAlbums();renderPlayer();
+</script>
+</body>
+</html>
